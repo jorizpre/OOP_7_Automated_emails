@@ -1,5 +1,5 @@
 # For the Excel file or for the email we will just use existing Classes
-import requests # to get data from URL
+import requests # to get data from URL (connecting to API)
 from pprint import pprint # formatting of URL content import
 
 # For getting news we have 2 options: web scraping and a news API (preferable)
@@ -15,14 +15,12 @@ class NewsFeed:
         pass
 url = "https://newsapi.org/v2/everything?"\
       "qInTitle=Valencia&"\
-      "from=2023-02-01&"\
+      "from=2023-02-15&"\
       "sortBy=publishedAt&"\
       "language=en&"\
       "apiKey=cc70925819264ddebb9d63a1faf2539c"
 
 response = requests.get(url)
 # content = response.text # extracting data as a string
-content = response.json # getting the data as json file (which Python converts to dictionary)
+content = response.text # getting the data as json file (which Python converts to dictionary)
 pprint(content)
-
-content_file = json.dumps(content)
